@@ -887,4 +887,22 @@ position: relative;
 
 
 
+.modal {
+    width:528px;
+    height:581px;
+    background-color: white;
+    position:absolute;
+    border: 1px solid var(--dark-graphite-text);
+    border-radius: 4px;
+    top:221px;
+    left: 50%;
+    transform: translate (-50%);
+}
 
+.backdrop-modal-btn {
+    position:absolute;
+    left:490px;
+    top:8px;
+    
+    
+}
