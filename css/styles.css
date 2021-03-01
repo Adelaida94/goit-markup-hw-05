@@ -11,6 +11,7 @@
     --light-grey-bg-team: #F5F4FA;
     --light-grey-icons: #AFB1B8;
     --white-text-op10:  rgb(255, 255, 255, 0.1);
+    --transition-time: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 body {
@@ -30,6 +31,7 @@ header {
     font-weight: 500;
     font-size: 14px;
     line-height: 16px;
+    border-bottom: 1px solid var(--light-grey-stroke);
 }
 
 .header-nav,
@@ -62,7 +64,7 @@ img {
     /* justify-content: space-between; */
     align-items:center;
     /* margin-top: 32px; */
-    border-bottom: 1px solid var(--light-grey-stroke);
+    
     max-height: 80px;
 }
 
@@ -95,6 +97,8 @@ img {
     font-size: 14px;
     line-height: 16px;
     letter-spacing: 0.02em;
+
+    transition: color var(--transition-time);
 }
 
 
@@ -119,9 +123,12 @@ img {
     line-height: 16px;
     letter-spacing: 0.02em;
     position:relative;
+
+    transition: color var(--transition-time);
 }
 
-.link-header:hover {
+.link-header:hover,
+.link-header:focus {
     color: var(--blue);
 }
 
@@ -168,6 +175,8 @@ img {
     align-items: center;
     padding-top: 32px;
     padding-bottom: 32px;
+
+    transition: color var(--transition-time);
 }
 
 .mail-icon,
@@ -431,6 +440,8 @@ img {
     height: 44px;
     color: var(--light-grey-icons);
     border-radius: 50%;
+
+    transition: color var(--transition-time); 
 }
 
 .social-netw-icon {
@@ -700,7 +711,7 @@ footer {
     margin-left: -30px;
 }
 
-.pf-card {
+.portfolio-cards-stack {
     background-color: var(--white);
     outline: 1px solid var(--light-grey-stroke);
     /* border: 1 px solid var(--light-grey-stroke); */
@@ -710,7 +721,7 @@ footer {
     box-sizing: border-box;
     position:relative;
 
-    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);  
+    transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1), opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);  
 }
 
 .project-names h3 {
@@ -732,12 +743,12 @@ footer {
     line-height: 30px;
     letter-spacing: 0.06em;
     margin-left: 24px;
-    margin-bottom: 20px;
+    padding-bottom: 20px;
     font-family:'Roboto', sans-serif;
 }
   
-.pf-card:hover,
-.pf-card:focus {
+.portfolio-cards-stack:hover ,
+.portfolio-cards-stack:focus {
     box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06), 1px 4px 6px rgba(0, 0, 0, 0.16);
 }
 
@@ -810,18 +821,49 @@ position: relative;
 }
 
 
-.pf-card:hover::before {
+/* .pf-card::before {
     content:"";
     display: flex;
     position:absolute;
     height:294px;
     width: 100%;
     top:0;
-    background-color: rgba(33, 150, 243, 0.9);
+    background-color:var(--blue);
+    opacity: 0;
+   
+    transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+} */
 
+.projects-overlay {
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:var(--blue);
+    opacity: 0;
+    padding: 63px 24px;    
+
+    transform: translateY(100%);
+    transition: transform var(--transition-time), opacity var(--transition-time);
 }
 
-.pf-images-title-name {
+.pf-card-image {
+    position: relative;  
+  /* overflow: hidden; */
+  border-style: none;
+  width: 368px;
+  height: 294px;
+}
+
+.portfolio-gal-links:hover .projects-overlay,
+.portfolio-gal-links:focus .projects-overlay  {
+    transform: translateX(0);
+    opacity: 0.9;
+}
+
+.projects-overlay p {
     color: var(--white);
     position:absolute;
     display: flex;
@@ -832,11 +874,6 @@ position: relative;
     font-family:'Roboto', sans-serif;
     top:63px;
     left:24px;
-    opacity:0;
-
-    /* transition-property: text; */
-    transition-duration: 250ms;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 
 }
 
@@ -850,10 +887,4 @@ position: relative;
 
 
 
-.pf-card:hover .pf-images-title-name,
-.pf-card:focus .pf-images-title-name {
-    opacity: 1;
-    /* transition-duration: 250ms;
-    transition-timing-function: linear; */
-}
 
