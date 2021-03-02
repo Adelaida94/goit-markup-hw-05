@@ -360,7 +360,6 @@ img {
     align-items: center;
     padding-top: 94px;
     padding-bottom: 94px;
-
 }
 
 .team h2 {
@@ -371,8 +370,7 @@ img {
     display: flex;
     align-items: center;
     margin-left: 0;
-    margin-right: 0;
-    
+    margin-right: 0; 
 }
 
 .workers > li:nth-child(1) {
@@ -852,7 +850,7 @@ position: relative;
 
 .pf-card-image {
     position: relative;  
-  /* overflow: hidden; */
+  overflow: hidden;
   border-style: none;
   width: 368px;
   height: 294px;
@@ -897,6 +895,8 @@ position: relative;
     position:fixed;
     top:0;
     left: 0; 
+
+    transition: opacity var(--transition-time);
 }
 
 .modal {
@@ -909,9 +909,7 @@ position: relative;
     height:581px;
     background-color: white; 
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
-    border-radius: 4px;
-    
-    
+    border-radius: 4px; 
 }
 
 .backdrop-modal-btn {
@@ -920,6 +918,7 @@ position: relative;
     right:8px;
     width:30px;
     height:30px;
+    cursor:pointer;
 }
 
 
